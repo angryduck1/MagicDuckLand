@@ -17,7 +17,7 @@ class LogicClientAvatar(LogicBase):
         encoder.writeInt(0) #HighID
         encoder.writeInt(1) #LowID
         encoder.writeInt(0) #HighAllianceId
-        encoder.writeInt(1) #LowAllianceId #CurrentHomeId
+        encoder.writeInt(1) #LowAllianceId
         
         encoder.writeBoolean(False)
         
@@ -39,10 +39,10 @@ class LogicClientAvatar(LogicBase):
         encoder.writeInt(0) #LoseCount
         encoder.writeInt(0) #DefenseWinCount
         encoder.writeInt(0) #DefenseLoseCount
-        encoder.writeBoolean(True) #setNameSetByUser
+        encoder.writeBoolean(False) #setNameSetByUser
         encoder.writeInt(0) #CumulativePurchasedDiamonds
 
-        encoder.writeInt(0)
+        encoder.writeInt(0) #SetResources
         encoder.writeInt(len(self.resources))
         
         for item in self.resources:
@@ -57,11 +57,6 @@ class LogicClientAvatar(LogicBase):
         encoder.writeInt(0)
         encoder.writeInt(0)
         encoder.writeInt(0)
-
-        encoder.writeInt(len(self.tutorialSteps)) # skip tutorial
-        for item in self.tutorialSteps:
-            encoder.writeInt(item)
-
         encoder.writeInt(0)
         encoder.writeInt(0)
         encoder.writeInt(0)
