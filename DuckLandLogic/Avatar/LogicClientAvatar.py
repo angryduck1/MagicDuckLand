@@ -4,12 +4,14 @@ from DuckLandLogic.Base.LogicBase import LogicBase
 
 class LogicClientAvatar(LogicBase):
     def __init__(self) -> None:
-        super().__init__
-         
-        self.resources = [3000001, 3000002, 3000003] # resources list
+        super().__init__()
 
+        self.resources = {
+            3000001: 8888888, #Gold
+            3000002: 7777777, #Elixir
+        }
         self.Diamonds = 999999
-         
+
         self.tutorialSteps = list(range(21000000, 21000013)) # tutor steps
 
     def encode(self, encoder: ChecksumEncoder):
@@ -18,9 +20,9 @@ class LogicClientAvatar(LogicBase):
         encoder.writeInt(1) #LowID
         encoder.writeInt(0) #HighAllianceId
         encoder.writeInt(1) #LowAllianceId
-        
+
         encoder.writeBoolean(False)
-        
+
         encoder.writeInt(0) #LeagueType
         encoder.writeInt(0)
         encoder.writeInt(0)
@@ -44,10 +46,10 @@ class LogicClientAvatar(LogicBase):
 
         encoder.writeInt(0) #SetResources
         encoder.writeInt(len(self.resources))
-        
-        for item in self.resources:
-            encoder.writeInt(item)
-            encoder.writeInt(self.Diamonds)
+
+        for resource_id, value in self.resources.items():
+            encoder.writeInt(resource_id)
+            encoder.writeInt(value)
 
         encoder.writeInt(0)
         encoder.writeInt(0)
