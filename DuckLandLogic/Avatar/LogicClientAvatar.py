@@ -8,7 +8,7 @@ class LogicClientAvatar(LogicBase):
          
         self.resources = [3000001, 3000002, 3000003] # resources list
 
-        self.Diamonds = 9999
+        self.Diamonds = 999999
          
         self.tutorialSteps = list(range(21000000, 21000013)) # tutor steps
 

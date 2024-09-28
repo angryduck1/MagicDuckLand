@@ -7,36 +7,36 @@ class Messaging:
     def __init__(self, client: socket.socket):
         self.client = client
         self.rc4_encrypter = RC4Encrypter()
-
+    
    # @staticmethod
    # def printByteArray(array: bytearray):
     #    hexStr = ''.join('\\x{:02x}'.format(b) for b in array)
    #     print(f'bytearray(b\"{hexStr}\")')
-
+    
     def sendMessage(self, message: PiranhaMessage):
         message.encode()
         encodingBytes = message.getByteStream().getByteArray()[:message.getEncodingLength()]
       #  print("Encoding Bytes:")
       #  self.printByteArray(encodingBytes)
-
+        
         encEncodingBytes = self.rc4_encrypter.encrypt(encodingBytes)
       #  print("Encrypted Encoding Bytes:")
       #  self.printByteArray(encEncodingBytes)
-
+        
         fullPayload = bytearray(len(encEncodingBytes) + 7)
         Messaging.writeHeader(fullPayload, message, len(encEncodingBytes))
         fullPayload[7:] = encEncodingBytes
-
+        
         self.client.send(fullPayload)
         print("[Messaging] Sent: " + str(message.getMessageType()))
-
+    
     @staticmethod
     def readHeader(buffer: bytearray):
         messageType = buffer[1] | (buffer[0] << 8)
         encodingLength = (buffer[2] << 16) | (buffer[3] << 8) | buffer[4]
         messageVersion = buffer[6] | (buffer[5] << 8)
         return messageType, encodingLength, messageVersion
-
+    
     @staticmethod
     def writeHeader(buffer: bytearray, message: PiranhaMessage, length: int):
         messageType = message.getMessageType()
