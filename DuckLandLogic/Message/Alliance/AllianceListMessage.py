@@ -1,6 +1,5 @@
 from DuckLandTitan.Logic.Message.PiranhaMessage import PiranhaMessage
 
-
 class AllianceListMessage(PiranhaMessage):
 
     def __init__(self):

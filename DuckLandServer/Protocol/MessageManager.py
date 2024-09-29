@@ -8,6 +8,8 @@ from DuckLandLogic.Message.Alliance.SearchAlliancesMessage import SearchAlliance
 from DuckLandLogic.Message.Alliance.AllianceListMessage import AllianceListMessage
 from DuckLandLogic.Message.Profile.AskForAvatarProfileMessage import AskForAvatarProfileMessage
 from DuckLandLogic.Message.Profile.AvatarProfileMessage import AvatarProfileMessage
+from DuckLandLogic.Message.Alliance.CreateAlliance.CreateAllianceMessage import CreateAllianceMessage
+from DuckLandLogic.Message.Alliance.CreateAlliance.AllianceCreateFailedMessage import *
 
 class MessageManager:
     def __init__(self, messaging: Messaging) -> None:
@@ -24,6 +26,8 @@ class MessageManager:
             self.messaging.sendMessage(AllianceListMessage())
         elif messageType == 14325:
             self.messaging.sendMessage(AvatarProfileMessage())
+        elif messageType == 14301:
+            self.messaging.sendMessage(AllianceCreateFailedMessage())
         else:
             print("Unknown message type: " + str(messageType))
     def __str__(self) -> str:
