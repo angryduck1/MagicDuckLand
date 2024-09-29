@@ -8,13 +8,13 @@ class CreateAllianceMessage(PiranhaMessage):
     
     def decode(self):
 
-        self.stream.readString()  # AllianceName
-        self.stream.readString()  # AllianceDesc
+        self.stream.readString()  
+        self.stream.readString()
 
-        self.stream.readInt()  # AllianceBadge
+        self.stream.readInt()
 
-        self.stream.readInt()  # AllianceType
-        self.stream.readInt()  # RequiredScore
+        self.stream.readInt()
+        self.stream.readInt()
 
     def getMessageType(self):
-        return 14301 
+        return 14301

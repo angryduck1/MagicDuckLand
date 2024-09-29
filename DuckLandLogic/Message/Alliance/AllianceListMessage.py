@@ -10,7 +10,7 @@ class AllianceListMessage(PiranhaMessage):
 
         self.stream.writeString("value")
 
-        self.stream.writeInt(1)  # Amount of clubs in the club list
+        self.stream.writeInt(1)
 
     def getMessageType(self):
         return 24310
