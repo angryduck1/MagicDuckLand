@@ -63,4 +63,7 @@ class LogicClientAvatar(LogicBase):
         encoder.writeInt(0)
         encoder.writeInt(0)
         encoder.writeInt(0)
-        encoder.writeInt(0) 
+        encoder.writeInt(0)
+        encoder.writeInt(0)
+        encoder.writeInt(0)
+        encoder.writeInt(0)
