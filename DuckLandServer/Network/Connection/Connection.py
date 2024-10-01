@@ -39,8 +39,6 @@ class Connection(threading.Thread):
 
                     message: PiranhaMessage = LogicMagicMessageFactory.createMessageByType(messageType)
 
-                    print(messageType)
-
                     if message is not None:
                         message.setMessageVersion(messageVersion)
                         message.getByteStream().setByteArray(decPayload, encodingLength, len(decPayload))

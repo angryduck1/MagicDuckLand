@@ -3,6 +3,7 @@ from DuckLandServer.Protocol.EndClientTurnMessage import EndClientTurnMessage
 from DuckLandLogic.Message.Alliance.SearchAlliancesMessage import SearchAlliancesMessage
 from DuckLandLogic.Message.Profile.AskForAvatarProfileMessage import AskForAvatarProfileMessage
 from DuckLandLogic.Message.Alliance.CreateAlliance.CreateAllianceMessage import CreateAllianceMessage
+from DuckLandLogic.Message.Chat.SendGlobalChatLineMessage import SendGlobalChatLineMessage
 
 class LogicMagicMessageFactory:
     messages = {
@@ -10,7 +11,8 @@ class LogicMagicMessageFactory:
         14102: EndClientTurnMessage,
         14324: SearchAlliancesMessage,
         14325: AskForAvatarProfileMessage,
-        14301: CreateAllianceMessage
+        14301: CreateAllianceMessage,
+        14715: SendGlobalChatLineMessage
     }
 
     @staticmethod

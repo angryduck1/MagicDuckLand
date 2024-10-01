@@ -10,6 +10,8 @@ from DuckLandLogic.Message.Profile.AskForAvatarProfileMessage import AskForAvata
 from DuckLandLogic.Message.Profile.AvatarProfileMessage import AvatarProfileMessage
 from DuckLandLogic.Message.Alliance.CreateAlliance.CreateAllianceMessage import CreateAllianceMessage
 from DuckLandLogic.Message.Alliance.CreateAlliance.AllianceCreateFailedMessage import *
+from DuckLandLogic.Message.Chat.SendGlobalChatLineMessage import SendGlobalChatLineMessage
+from DuckLandLogic.Message.Chat.GlobalChatLineMessage import GlobalChatLineMessage
 
 class MessageManager:
     def __init__(self, messaging: Messaging) -> None:
@@ -28,6 +30,8 @@ class MessageManager:
             self.messaging.sendMessage(AvatarProfileMessage())
         elif messageType == 14301:
             self.messaging.sendMessage(AllianceCreateFailedMessage())
+        elif messageType == 14715:
+            self.messaging.sendMessage(GlobalChatLineMessage())
         else:
             print("Unknown message type: " + str(messageType))
     def __str__(self) -> str:
