@@ -7,10 +7,8 @@ class AskForAvatarProfileMessage(PiranhaMessage):
         super().__init__(0)
         
     def decode(self):
-        self.stream.readInt() # AvatarHighID
-        self.stream.readInt() # AvatarLowID
-        self.stream.readInt() # HomeHighID
-        self.stream.readInt() # HomeLowID
+        self.stream.readLong() #AvatarId
+        self.stream.readLong() #HomeId
 
     def getMessageType(self) -> int:
         return 14325

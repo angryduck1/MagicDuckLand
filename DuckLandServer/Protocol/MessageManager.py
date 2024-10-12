@@ -12,6 +12,8 @@ from DuckLandLogic.Message.Alliance.CreateAlliance.CreateAllianceMessage import 
 from DuckLandLogic.Message.Alliance.CreateAlliance.AllianceCreateFailedMessage import *
 from DuckLandLogic.Message.Chat.SendGlobalChatLineMessage import SendGlobalChatLineMessage
 from DuckLandLogic.Message.Chat.GlobalChatLineMessage import GlobalChatLineMessage
+from DuckLandLogic.Message.LeaderBoard.AskForAvatarRankingListMessage import AskForAvatarRankingListMessage
+from DuckLandLogic.Message.LeaderBoard.AvatarRankingListMessage import AvatarRankingListMessage
 
 class MessageManager:
     def __init__(self, messaging: Messaging) -> None:
@@ -32,6 +34,8 @@ class MessageManager:
             self.messaging.sendMessage(AllianceCreateFailedMessage())
         elif messageType == 14715:
             self.messaging.sendMessage(GlobalChatLineMessage())
+        elif messageType == 14403:
+            self.messaging.sendMessage(AvatarRankingListMessage())
         else:
             print("Unknown message type: " + str(messageType))
     def __str__(self) -> str:

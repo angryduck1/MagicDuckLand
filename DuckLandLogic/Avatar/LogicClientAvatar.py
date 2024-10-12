@@ -15,11 +15,10 @@ class LogicClientAvatar(LogicBase):
         self.tutorialSteps = list(range(21000000, 21000013)) # tutor steps
 
     def encode(self, encoder: ChecksumEncoder):
-        encoder.writeInt(0) #LogicDataVersion
-        encoder.writeInt(0) #HighID
-        encoder.writeInt(1) #LowID
-        encoder.writeInt(0) #HighAllianceId
-        encoder.writeInt(1) #LowAllianceId
+        super().encode(encoder)
+
+        encoder.writeLong(LogicLong(1, 1)) #SetId
+        encoder.writeLong(LogicLong(1, 1)) #SetCurrentHomeId
 
         encoder.writeBoolean(False)
 
