@@ -1,13 +1,13 @@
 class LogicLong:
-    def __init__(self, highInteger: int = 0, lowInteger: int = 0) -> None:
+    def __init__(self, highInteger: int = 0, lowInteger: int = 0):
         self.highInteger = highInteger #this
         self.lowInteger = lowInteger #this + 1
 
-    def decode(self, stream) -> None:
+    def decode(self, stream):
         self.highInteger = stream.readInt()
         self.lowInteger = stream.readInt()
 
-    def encode(self, encoder) -> None:
+    def encode(self, encoder):
         encoder.writeInt(self.highInteger)
         encoder.writeInt(self.lowInteger)
     
