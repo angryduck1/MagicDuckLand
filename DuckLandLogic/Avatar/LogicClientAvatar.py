@@ -36,10 +36,10 @@ class LogicClientAvatar(LogicBase):
         encoder.writeInt(0) #AttackRating
         encoder.writeInt(0) #AttackKFactor
         encoder.writeInt(9999) #Score
-        encoder.writeInt(0) #AttackWinCount
-        encoder.writeInt(0) #LoseCount
-        encoder.writeInt(0) #DefenseWinCount
-        encoder.writeInt(0) #DefenseLoseCount
+        encoder.writeInt(100) #AttackWinCount
+        encoder.writeInt(100) #LoseCount
+        encoder.writeInt(100) #DefenseWinCount
+        encoder.writeInt(100) #DefenseLoseCount
         encoder.writeBoolean(False) #setNameSetByUser
         encoder.writeInt(0) #CumulativePurchasedDiamonds
 

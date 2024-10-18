@@ -9,7 +9,7 @@ class GlobalChatLineMessage(PiranhaMessage):
 
     def encode(self):
         self.stream.writeString("как писать самому?")
-        self.stream.writeString("angryduck001")
+        self.stream.writeString(LogicClientAvatar().encode(self.stream))
 
         self.stream.writeInt(0)
         self.stream.writeInt(0)
