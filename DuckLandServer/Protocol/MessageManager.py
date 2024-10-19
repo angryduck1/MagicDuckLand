@@ -33,7 +33,7 @@ class MessageManager:
         elif messageType == 14301:
             self.messaging.sendMessage(AllianceCreateFailedMessage())
         elif messageType == 14715:
-            self.messaging.sendMessage(GlobalChatLineMessage())
+            self.onSendGlobalChatMessage(message)
         elif messageType == 14403:
             self.messaging.sendMessage(AvatarRankingListMessage())
         else:
@@ -53,3 +53,10 @@ class MessageManager:
             print("Login message received")
         else:
             print("Received message of wrong type for onLoginMessage")
+
+    def onSendGlobalChatMessage(self, sendGlobalChatLineMessage: SendGlobalChatLineMessage):
+        print(f"New message: {sendGlobalChatLineMessage.getMessage()}")
+
+        globalChatLineMessage = GlobalChatLineMessage()
+        globalChatLineMessage.setMessage(sendGlobalChatLineMessage.getMessage())
+        self.messaging.sendMessage(globalChatLineMessage)
