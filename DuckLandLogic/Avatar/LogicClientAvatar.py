@@ -6,10 +6,6 @@ class LogicClientAvatar(LogicBase):
     def __init__(self) -> None:
         super().__init__()
 
-        self.resources = {
-            3000001: 8888888, #Gold
-            3000002: 7777777, #Elixir
-        }
         self.Diamonds = 999999
 
         self.tutorialSteps = list(range(21000000, 21000013)) # tutor steps
@@ -44,11 +40,14 @@ class LogicClientAvatar(LogicBase):
         encoder.writeInt(0) #CumulativePurchasedDiamonds
 
         encoder.writeInt(0) #SetResources
-        encoder.writeInt(len(self.resources))
 
-        for resource_id, value in self.resources.items():
-            encoder.writeInt(resource_id)
-            encoder.writeInt(value)
+        encoder.writeInt(2) #QualityResources
+
+        encoder.writeInt(3000001) #Gold
+        encoder.writeInt(8888888) #GoldAmount
+
+        encoder.writeInt(3000002) #Elixir
+        encoder.writeInt(7777777) #ElixirAmount
 
         encoder.writeInt(0)
         encoder.writeInt(0)

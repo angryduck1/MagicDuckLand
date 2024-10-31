@@ -5,6 +5,7 @@ from DuckLandLogic.Message.Profile.AskForAvatarProfileMessage import AskForAvata
 from DuckLandLogic.Message.Alliance.CreateAlliance.CreateAllianceMessage import CreateAllianceMessage
 from DuckLandLogic.Message.Chat.SendGlobalChatLineMessage import SendGlobalChatLineMessage
 from DuckLandLogic.Message.LeaderBoard.AskForAvatarRankingListMessage import AskForAvatarRankingListMessage
+from DuckLandLogic.Message.Battles.AttackNpcMessage import AttackNpcMessage
 
 class LogicMagicMessageFactory:
     messages = {
@@ -14,7 +15,8 @@ class LogicMagicMessageFactory:
         14325: AskForAvatarProfileMessage,
         14301: CreateAllianceMessage,
         14715: SendGlobalChatLineMessage,
-        14403: AskForAvatarRankingListMessage
+        14403: AskForAvatarRankingListMessage,
+        14134: AttackNpcMessage
     }
 
     @staticmethod

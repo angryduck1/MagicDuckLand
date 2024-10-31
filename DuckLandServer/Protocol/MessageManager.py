@@ -14,6 +14,8 @@ from DuckLandLogic.Message.Chat.SendGlobalChatLineMessage import SendGlobalChatL
 from DuckLandLogic.Message.Chat.GlobalChatLineMessage import GlobalChatLineMessage
 from DuckLandLogic.Message.LeaderBoard.AskForAvatarRankingListMessage import AskForAvatarRankingListMessage
 from DuckLandLogic.Message.LeaderBoard.AvatarRankingListMessage import AvatarRankingListMessage
+from DuckLandLogic.Message.Battles.AttackNpcMessage import AttackNpcMessage
+from DuckLandLogic.Message.Battles.NpcDataMessage import NpcDataMessage
 
 class MessageManager:
     def __init__(self, messaging: Messaging) -> None:
@@ -36,6 +38,8 @@ class MessageManager:
             self.onSendGlobalChatMessage(message)
         elif messageType == 14403:
             self.messaging.sendMessage(AvatarRankingListMessage())
+        elif messageType == 14134:
+            self.messaging.sendMessage(NpcDataMessage())
         else:
             print("Unknown message type: " + str(messageType))
     def __str__(self) -> str:
